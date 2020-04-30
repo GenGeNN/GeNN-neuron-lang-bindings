@@ -1,9 +1,10 @@
-## GeNN Contributor Standard License 1.0.0##
-This license is designed for code stored in specific GeNN repositories, namely the user submission repositories as part of the GenGeNN project. This license must not be modified and cannot be used for any repositories not directly related to GeNN.
-In this context:  
+## GeNN Contributor Standard License 1.0.0
+**This license is designed for code stored in specific GeNN repositories, namely the user submission repositories as part of the GenGeNN project. This license must not be modified and cannot be used for any repositories not directly related to GeNN.**  
+In the context of this license:  
   - Internal code means any publicly available code owned, endorsed (but not warranted) and directly maintained by the GeNN team, including that stored in repositories on GitHub as part of the GeNN-team or GenGeNN projects.
   - External code means any code that is not endorsed (or warranted) by the GeNN team. This includes any code not in the master branches of any internal git repositories.
   - Author means the entity that created or submitted any code in a format that makes it accessible to the general public.
+### The following clauses comprise this license:
 1. Using internal code with this license  
   All the code in these repositories is free to use. While the GenGeNN team will endeavour to make all code in these repositories as safe and appropriate to purpose as feasibly possible, no warranty of use or responsibility for damage is provided. To help achieve this goal, the master branch of these repositories will be moderated.
 2. Using external code with this license  
