@@ -1,0 +1,21 @@
+{{ id }}_model = genn_model.create_custom_neuron_class(
+    class_name = "{{ id }}",
+    param_names = [ {% for parameter in parameters %}"{{ parameter }}"{% if not loop.last %}, {% endif %}{% endfor %} ],
+    var_name_types = [ {% for variable in variables %}( "{{ variable.name }}", "{{ variable.type }}" ){% if not loop.last %}, {% endif %}{% endfor %} ],
+    derived_params = [ {% for parameter in derived_params %}( "{{ parameter.name }}", {% if parameter.derivation.python is defined %}{{ parameter.derivation.python }}{% else %}{{ parameter.derivation.generic }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %} ],
+    sim_code='''
+    {{- sim_code|indent }}
+    ''',
+    threshold_condition_code = '''
+    {{- threshold_condition_code|indent }}
+    ''',
+    reset_code = '''
+    {{- reset_code|indent }}
+    ''',
+    support_code = '''
+    {{- support_code|indent }}
+    ''',
+    extra_global_params = [ {% for parameters in additional_parameters %}( "{{ parameter.name }}", "{{ parameter.type }}" ){% if not loop.last %}, {% endif %}{% endfor %} ],
+    additional_input_vars = [ {% for variable in additional_variables %}( "{{ variable.name }}", "{{ variable.type }}", {{ variable.initial }} ){% if not loop.last %}, {% endif %}{% endfor %} ],
+    is_auto_refractory_required = {{ is_auto_refractory_required }}
+)
