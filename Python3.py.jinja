@@ -1,3 +1,24 @@
+{# 
+Jinja2 template for generating neuron implementation code in Python3.
+Authored by Liam Staras, 2020. Licensed under the GeNN Contributor Standard License 1.0.0.
+Part of the GeNN project.
+
+PARAMETERS and INPUTS:
+STRING 'id' as a unique identifier for the neuron
+LIST 'parameters' as the parameter names for the model
+LIST of DICTS 'variables' as the variable names and types for the model
+LIST of DICTS 'derived_parameters' as the names and derivation functions (in Python code of dependent parameters for the model
+STRING 'sim_code' as the code describing the function of the neuron
+STRING 'threshold_condition_code' as the code describing the threshold condition
+STRING 'reset_code' as the code describing the reset operation
+STRING 'support_code' as the additional support code for the neuron
+LIST of DICTS 'additional_parameters' as the names and types of additional parameters for the model
+LIST of DICTS 'additional_variables' as the names, types and initial values of additional variables for the model
+BOOLEAN 'is_auto_refractory_required' as whether the model requires auto-refractory logic to be generated
+
+NOT IMPLEMENTED: 'custom_body'
+
+#}
 {{ id }}_model = genn_model.create_custom_neuron_class(
     class_name = "{{ id }}",
     param_names = [ {% for parameter in parameters %}"{{ parameter }}"{% if not loop.last %}, {% endif %}{% endfor %} ],
